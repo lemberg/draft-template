@@ -1,0 +1,11 @@
+This is a [Composer](https://getcomposer.org)-based installer for the [Draft](https://github.com/lemberg/draft) Drupal profile.
+
+## Get Started
+
+Run this command:
+
+```
+$ composer create-project lemberg/draft-template my_awesome_project
+```
+
+Composer will create a new directory called `my_awesome_project` containing everything you need to get started.

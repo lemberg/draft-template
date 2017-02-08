@@ -38,6 +38,7 @@ before_script:
 
 script:
   - composer validate --no-check-all --ansi
+  - drush site-install --db-url=mysql://draft:draft@localhost/drupal --account-name=admin --account-pass=admin -r ./docroot
 
 matrix:
   fast_finish: true

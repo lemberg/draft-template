@@ -1,0 +1,44 @@
+sudo: required
+dist: trusty
+language: php
+
+cache:
+  apt: true
+  directories:
+    - "$HOME/.composer/cache"
+    - "$HOME/.drush/cache"
+php:
+  - 5.6
+
+before_install:
+  - phpenv config-rm xdebug.ini
+  - composer self-update
+  - composer --version
+
+install:
+  # Add Composer's local bin directory to the PATH.
+  - export PATH="$HOME/.composer/vendor/bin:$TRAVIS_BUILD_DIR/bin:$PATH"
+
+  # composer install should fail on bad patches.
+  - export COMPOSER_EXIT_ON_PATCH_FAILURE=1
+
+  # Create the MySQL database and add a user for testing.
+  - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'draft'@'localhost' IDENTIFIED BY 'draft'; GRANT ALL ON drupal.* TO 'draft'@'localhost';"
+
+  # Tweak PHP configuration.
+  - echo 'sendmail_path = /bin/true' >> drupal.php.ini;
+  - phpenv config-add drupal.php.ini
+  - phpenv rehash
+
+  # Build the code base.
+  - composer install
+
+before_script:
+  - drush runserver --default-server=builtin 8080 &>/dev/null &
+
+script:
+  - composer validate --no-check-all --ansi
+  - behat --strict --stop-on-failure
+
+matrix:
+  fast_finish: true

@@ -33,12 +33,9 @@ install:
   # Build the code base.
   - composer install
 
-before_script:
-  - drush runserver --default-server=builtin 8080 1>/dev/null &
-
 script:
   - composer validate --no-check-all --ansi
-  - drush site-install --db-url=mysql://draft:draft@localhost/drupal --account-name=admin --account-pass=admin -r ./docroot
+  - drush site-install --db-url=mysql://draft:draft@localhost/drupal --account-name=admin --account-pass=admin -r ./docroot --yes
 
 matrix:
   fast_finish: true

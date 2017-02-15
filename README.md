@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/lemberg/draft-template.svg?branch=1.0.x)](https://travis-ci.org/lemberg/draft-template)
+[![Build Status](https://travis-ci.org/lemberg/draft-template.svg?branch=1.x)](https://travis-ci.org/lemberg/draft-template)
 
 This is a [Composer](https://getcomposer.org)-based installer for the [Draft](https://github.com/lemberg/draft) Drupal profile.
 

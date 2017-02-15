@@ -2,6 +2,12 @@
 
 This is a [Composer](https://getcomposer.org)-based installer for the [Draft](https://github.com/lemberg/draft) Drupal profile.
 
+## Requirements
+
+- Composer/PHP
+- Vagrant
+- VirtualBox
+
 ## Get Started
 
 Run this command:

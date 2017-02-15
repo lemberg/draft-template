@@ -13,7 +13,8 @@
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
         "drupal/core": "^8.2.0",
-        "lemberg/draft": "^1.0.0"
+        "lemberg/draft": "^1.0.0",
+        "lemberg/draft-environment": "^1.2.0"
     },
     "repositories": [
         {
@@ -23,10 +24,17 @@
     ],
     "scripts": {
         "post-install-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+            "Lemberg\\Draft\\Environment\\ScriptHandler::setUpProject"
         ],
         "post-update-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+            "Lemberg\\Draft\\Environment\\ScriptHandler::setUpProject"
+        ]
+    },
+    "autoload": {
+        "classmap": [
+          "scripts/ScriptHandler.php"
         ]
     },
     "config": {

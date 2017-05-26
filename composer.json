@@ -6,15 +6,17 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
+        "drupal/console": "^1.0",
         "drush/drush": "^8.0.0",
         "lemberg/draft-environment": "^1.3.2"
     },
     "require": {
         "composer/installers": "^1.0",
-        "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
-        "drupal/core": "^8.2.0",
-        "lemberg/draft": "^1.0.0"
+        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "drupal/core": "^8.3.0",
+        "lemberg/draft": "^1.3.0",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "repositories": [
         {
@@ -35,6 +37,11 @@
         "bin-dir": "bin"
     },
     "extra": {
+        "merge-plugin": {
+            "include": [
+                "docroot/core/composer.json"
+            ]
+        },
         "installer-paths": {
             "docroot/core": [
                 "type:drupal-core"

@@ -13,7 +13,7 @@
 /docroot/.csslintrc
 /docroot/.editorconfig
 /docroot/.eslintignore
-/docroot/.eslintrc
+/docroot/.eslintrc.json
 /docroot/.gitattributes
 /docroot/.htaccess
 /docroot/autoload.php

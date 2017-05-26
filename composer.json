@@ -15,7 +15,7 @@
         "cweagans/composer-patches": "^1.6.0",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "drupal/core": "^8.3.0",
-        "lemberg/draft": "^1.3.0",
+        "lemberg/draft": "^1.0.0",
         "wikimedia/composer-merge-plugin": "^1.4"
     },
     "repositories": [

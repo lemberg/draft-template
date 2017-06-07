@@ -16,6 +16,8 @@
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "drupal/core": "^8.3.0",
         "lemberg/draft": "^1.0.0",
+        "symfony/filesystem": "~2.8",
+        "symfony/yaml": "~2.8",
         "wikimedia/composer-merge-plugin": "^1.4"
     },
     "repositories": [
@@ -25,23 +27,29 @@
         }
     ],
     "scripts": {
-        "post-install-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "post-create-project-cmd": [
+            "Lemberg\\Draft\\Template\\Cleaner::cleanUp",
             "Lemberg\\Draft\\Environment\\ScriptHandler::setUp"
         ],
+        "post-install-cmd": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+            "Lemberg\\Draft\\Template\\DrupalProject::createRequiredFiles",
+            "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
+        ],
         "post-update-cmd": [
-            "Lemberg\\Draft\\Environment\\ScriptHandler::setUp"
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+            "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ]
     },
     "config": {
         "bin-dir": "bin"
     },
+    "autoload": {
+        "psr-4": {
+            "Lemberg\\Draft\\Template\\": "src/"
+        }
+    },
     "extra": {
-        "merge-plugin": {
-            "include": [
-                "docroot/core/composer.json"
-            ]
-        },
         "installer-paths": {
             "docroot/core": [
                 "type:drupal-core"
@@ -57,6 +65,11 @@
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
+            ]
+        },
+        "merge-plugin": {
+            "include": [
+                "docroot/core/composer.json"
             ]
         },
         "enable-patching": true

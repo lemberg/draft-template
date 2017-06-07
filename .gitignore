@@ -6,7 +6,8 @@
 /docroot/modules/contrib
 /docroot/profiles/contrib
 /docroot/themes/contrib
-/docroot/sites
+/docroot/sites/default/files
+/docroot/sites/simpletest
 
 # Ignore Drupal scaffold.
 /docroot/.csslintrc
@@ -20,6 +21,15 @@
 /docroot/robots.txt
 /docroot/update.php
 /docroot/web.config
+/docroot/sites/development.services.yml
+/docroot/sites/example.settings.local.php
+/docroot/sites/example.sites.php
+/docroot/sites/default/default.services.yml
+/docroot/sites/default/default.settings.php
+
+# Ignore local setup.
+/docroot/sites/default/development.services.yml
+/docroot/sites/default/settings.local.php
 
 # Ignore Composer-managed dependencies.
 /vendor

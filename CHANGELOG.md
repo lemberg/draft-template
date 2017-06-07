@@ -1,0 +1,42 @@
+## Draft Template 1.4.0, 2017-06-07
+
+- Added this file :)
+- Updated vendor libraries:
+    * Drupal Core (drupal/core: **^8.3.0**)
+- Added vendor libraries:
+    * Composer Merge Plugin (wikimedia/composer-merge-plugin: **^1.4**)
+    * Drupal Console (drupal/console: **^1.0**)
+    * Symfony Filesystem Component (symfony/filesystem: **~2.8**)
+    * Symfony Yaml Component (symfony/yaml: **~2.8**)
+- Merge core composer.json
+- Updated .gitignore to exclude settings/services related files
+- Added default settings.php
+- Added clean up and project configuration scripts
+- Renamed main branch to 1.x.x
+
+## Draft Template 1.3.0, 2017-02-22
+
+- Removed local development environment set up and replaced it by script from Draft Environment package
+- Updated .gitignore to include Drupal scaffold
+- Updated vendor libraries:
+    * Draft Environment (lemberg/draft-environment: **^1.3.2**)
+
+## Draft Template 1.2.1, 2017-02-15
+
+- Updated README.md
+
+## Draft Template 1.2.0, 2017-02-15
+
+- Added script to set up local development environment provided by Draft Environment
+- Added vendor libraries:
+    * Draft Environment (lemberg/draft-environment: **^1.2.0**)
+
+## Draft Template 1.1.0, 2017-02-08
+
+- Added basic integration with Travis CI
+- Added vendor libraries:
+    * Drush (drush/drush: **^8.0.0**)
+
+## Draft Template 1.0.0, 2017-02-07
+
+- Initial release, nothing fancy

@@ -44,7 +44,7 @@ class DrupalProject {
     $local_settings_file = "$root/sites/default/settings.local.php";
 
     if ($fs->exists($local_settings_file)) {
-      $io->write('<info>File local.settings.php exists, skipping. If you would like to start local setup again, remove local.settings.php and run composer install</info>');
+      $io->write('<info>File local.settings.php exists, skipping. To start over remove local.settings.php and run composer install</info>');
     }
     else if ($event->isDevMode() && $io->askConfirmation('<info>Would you like to setup project locally</info> [<comment>Y,n</comment>]? ')) {
 

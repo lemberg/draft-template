@@ -17,6 +17,7 @@ class Cleaner {
    */
   const FILES_TO_REMOVE = [
     '.travis.yml',
+    'CHANGELOG.md',
     'README.md',
   ];
 

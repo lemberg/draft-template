@@ -50,11 +50,6 @@
         }
     },
     "extra": {
-        "drupal-scaffold": {
-            "initial": {
-                "sites/development.services.yml": "sites/development.services.yml"
-            }
-        },
         "installer-paths": {
             "docroot/core": [
                 "type:drupal-core"

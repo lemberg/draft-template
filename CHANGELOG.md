@@ -1,5 +1,16 @@
 ## Draft Template 1.x.x
 
+- Updated vendor libraries:
+    * A Multi-Framework Composer Library Installer (composer/installers": **^1.3**)
+    * Draft (lemberg/draft: **^1.2.1**)
+    * Draft Environment (lemberg/draft-environment: **^1.4.0**)
+    * Drupal Scaffold (drupal-composer/drupal-scaffold": **^2.3**)
+- Removed vendor libraries (Draft profile is taking care of that):
+    * Drupal Core (drupal/core)
+    * Drupal Console (drupal/console)
+    * Drush (drush/drush)
+- Fix incorrect path to the config sync directory in settin1s.php
+
 ## Draft Template 1.4.0, 2017-06-07
 
 - Added this file :)

@@ -6,16 +6,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "drupal/console": "^1.0",
-        "drush/drush": "^8.0.0",
-        "lemberg/draft-environment": "^1.3.2"
+        "lemberg/draft-environment": "^1.4"
     },
     "require": {
-        "composer/installers": "^1.0",
-        "cweagans/composer-patches": "^1.6.0",
-        "drupal-composer/drupal-scaffold": "^2.0.0",
-        "drupal/core": "^8.3.0",
-        "lemberg/draft": "^1.0.0",
+        "composer/installers": "^1.3",
+        "cweagans/composer-patches": "^1.6",
+        "drupal-composer/drupal-scaffold": "^2.3",
+        "lemberg/draft": "^1.2.1",
         "symfony/filesystem": "~2.8",
         "symfony/yaml": "~2.8",
         "wikimedia/composer-merge-plugin": "^1.4"
@@ -69,8 +66,14 @@
         },
         "merge-plugin": {
             "include": [
-                "docroot/core/composer.json"
+                "docroot/core/composer.json",
+                "docroot/profiles/contrib/draft/composer.json"
             ]
+        },
+        "patches": {
+            "drupal/core": {
+                "Installation profiles do not support project:module format for dependencies": "https://www.drupal.org/files/issues/2855026-17.patch"
+            }
         },
         "enable-patching": true
     }

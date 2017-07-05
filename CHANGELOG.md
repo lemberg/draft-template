@@ -1,4 +1,4 @@
-## Draft Template 1.x.x
+## Draft Template 1.5.0, 2017-07-05
 
 - Updated vendor libraries:
     * A Multi-Framework Composer Library Installer (composer/installers": **^1.3**)
@@ -9,7 +9,7 @@
     * Drupal Core (drupal/core)
     * Drupal Console (drupal/console)
     * Drush (drush/drush)
-- Fix incorrect path to the config sync directory in settin1s.php
+- Fix incorrect path to the config sync directory in settings.php
 
 ## Draft Template 1.4.0, 2017-06-07
 

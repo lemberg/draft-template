@@ -31,7 +31,7 @@ install:
   - phpenv rehash
 
   # Build the code base.
-  - composer install --no-interaction
+  - composer install --no-interaction --no-progress --no-suggest
 
 script:
   - composer validate --no-check-all --ansi

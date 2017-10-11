@@ -1,4 +1,4 @@
-## Draft Template 1.6.0
+## Draft Template 1.6.0, 2017-10-11
 
 - Add support of Drupal 8.4
 - Updated vendor libraries:

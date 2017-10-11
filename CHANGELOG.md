@@ -1,4 +1,10 @@
-## Draft Template 1.x.x
+## Draft Template 1.6.0
+
+- Add support of Drupal 8.4
+- Updated vendor libraries:
+    * Draft Environment (lemberg/draft-environment: **^2.0.1**)
+    * Symfony Filesystem Component (symfony/filesystem: **~2.8|~3.2**)
+    * Symfony Yaml Component (symfony/yaml: **~2.8|~3.2**)
 
 ## Draft Template 1.5.0, 2017-07-05
 

@@ -6,7 +6,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "lemberg/draft-environment": "^1.4"
+        "lemberg/draft-environment": "^2.0.1"
     },
     "require": {
         "composer/installers": "^1.3",

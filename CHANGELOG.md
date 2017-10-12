@@ -1,3 +1,8 @@
+## Draft Template 1.6.2, 2017-10-12
+
+- Updated vendor libraries:
+    * Draft Environment (lemberg/draft-environment: **^2.0.2**)
+
 ## Draft Template 1.6.1, 2017-10-12
 
 - Catch up with changes in Draft environment 2.x.x

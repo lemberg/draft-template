@@ -1,3 +1,7 @@
+## Draft Template 1.6.1, 2017-10-12
+
+- Catch up with changes in Draft environment 2.x.x
+
 ## Draft Template 1.6.0, 2017-10-11
 
 - Add support of Drupal 8.4

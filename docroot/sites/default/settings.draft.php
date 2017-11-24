@@ -60,3 +60,18 @@ else {
   $part_4 = min([max([$sum % 256, 2]), 255]);
   $settings['trusted_host_patterns'][] = "10.10.$part_3.$part_4";
 }
+
+/**
+ * Disabling even more cache bins.
+ *
+ * Additional cache bin(s) can be disabled here by assigning cache.backend.null
+ * to them, for example:
+ *
+ * @code
+ * $settings['cache']['bins']['discovery'] = 'cache.backend.null';
+ * @endcode
+ *
+ * will disable discovery cache.
+ *
+ * For more information go to https://www.drupal.org/node/2598914
+ */

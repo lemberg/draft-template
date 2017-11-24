@@ -51,6 +51,18 @@ class DrupalProject {
       // Create settings.local.php
       $fs->copy("$root/sites/example.settings.local.php", $local_settings_file);
 
+      // Inject settings.draft.php at the bottom of the local settings file.
+      $settings = file_get_contents($local_settings_file);
+      $settings .= <<<HERE
+
+// Draft settings. These come last so that they can override anything.
+if (file_exists(\$app_root . '/' . \$site_path . '/settings.draft.php')) {
+  include \$app_root . '/' . \$site_path . '/settings.draft.php';
+}
+
+HERE;
+      file_put_contents($local_settings_file, $settings);
+
       // Create own development.services.yml.
       $development_services_file = "$root/sites/default/development.services.yml";
       if (!$fs->exists($development_services_file)) {

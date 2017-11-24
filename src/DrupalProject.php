@@ -43,7 +43,7 @@ class DrupalProject {
     $root = self::getProjectDocRoot();
     $local_settings_file = "$root/sites/default/settings.local.php";
 
-    if (!$fs->exists($local_settings_file) && $event->isDevMode() && $io->askConfirmation('Would you like to setup project locally? <question>[y,N]</question> ', FALSE)) {
+    if (!$fs->exists($local_settings_file) && $event->isDevMode() && $io->isInteractive() && $io->askConfirmation('Would you like to setup project locally? <question>[Y,n]</question> ')) {
 
       // Create settings.local.php
       $fs->copy("$root/sites/example.settings.local.php", $local_settings_file);

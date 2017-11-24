@@ -3,6 +3,16 @@
 - Sort dependencies in composer.json by default
 - Do not configure project locally by default
 - Add Draft settings file with common configuration for running Drupal in VM
+- Updated vendor libraries:
+    * Draft Environment (lemberg/draft-environment: **^2.1.1**)
+- Added vendor libraries:
+    * Coder (drupal/coder: **^8.2**)
+    * Drupal Console (drupal/console: **^1.2**)
+    * Devel (drupal/devel: **^1.2**)
+    * Reroute Email (drupal/reroute_email: **^1.0**)
+    * Stage File Proxy (drupal/stage_file_proxy: **^1.0**)
+    * Drush (drush/drush: **^8.1.15**)
+- Do not merge core and Draft profile composer.json files anymore, because this is causing troubles with updating core
 
 ## Draft Template 1.6.2, 2017-10-12
 

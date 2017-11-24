@@ -21,3 +21,7 @@ Composer will create a new directory called `my_awesome_project` containing ever
 ## Changelog
 
 Changelog can be found here [CHANGELOG.md](CHANGELOG.md)
+
+## Upgrade
+
+Upgrade instructions can be found here [UPGRADE.md](/UPGRADE.md)

@@ -1,3 +1,7 @@
+## Draft Template 1.x.x,
+
+- Sort dependencies in composer.json by default
+
 ## Draft Template 1.6.2, 2017-10-12
 
 - Updated vendor libraries:

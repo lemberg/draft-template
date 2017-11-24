@@ -68,8 +68,9 @@
         },
         "merge-plugin": {
             "include": [
-                "docroot/core/composer.json",
-                "docroot/profiles/contrib/draft/composer.json"
+                "docroot/modules/custom/*/composer.json",
+                "docroot/profiles/custom/*/composer.json",
+                "docroot/themes/custom/*/composer.json"
             ]
         },
         "patches": {

@@ -25,16 +25,17 @@
     ],
     "scripts": {
         "post-create-project-cmd": [
-            "Lemberg\\Draft\\Template\\Cleaner::cleanUp",
-            "Lemberg\\Draft\\Environment\\Configurer::setUp"
+            "Lemberg\\Draft\\Template\\Cleaner::cleanUp"
         ],
         "post-install-cmd": [
             "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+            "Lemberg\\Draft\\Environment\\Configurer::setUp",
             "Lemberg\\Draft\\Template\\DrupalProject::createRequiredFiles",
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-update-cmd": [
             "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+            "Lemberg\\Draft\\Environment\\Configurer::setUp",
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ]
     },

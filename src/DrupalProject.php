@@ -134,8 +134,12 @@ HERE;
     $fs = new Filesystem();
     $project_root = getcwd();
 
-    if (!$fs->exists("$project_root/shippable.yml") && $io->askConfirmation('Enable integration with Shippable CI? <question>[Y,n]</question> ')) {
+    if (!$fs->exists("$project_root/shippable.yml") && $io->askConfirmation('Enable integration with <info>Shippable CI</info>? <question>[Y,n]</question> ')) {
       $fs->copy("$project_root/integrations/shippable.com/shippable.yml", "$project_root/shippable.yml");
+    }
+
+    if (!$fs->exists("$project_root/.platform.app.yml") && $io->askConfirmation('Enable integration with <info>Platform.sh</info>? <question>[Y,n]</question> ')) {
+      $fs->mirror("$project_root/integrations/platform.sh", "$project_root");
     }
   }
 

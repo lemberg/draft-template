@@ -105,7 +105,12 @@ class DrupalProject {
    *   Absolute path to the project document root directory.
    */
   public static function getProjectDocRoot() {
-    return getcwd() . '/docroot';
+    // Get document root from VM settings.
+    $project_root = getcwd();
+    $parser = new Parser();
+    $vm_settings = $parser->parse(file_get_contents("$project_root/vm-settings.yml"));
+
+    return $project_root . '/' . (!empty($vm_settings['apache2_document_root']) ? $vm_settings['apache2_document_root'] : 'docroot');
   }
 
 }

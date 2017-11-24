@@ -16,6 +16,21 @@ before_install:
   - phpenv config-rm xdebug.ini
   - composer self-update
   - composer --version
+  # Download and register Oracle VirtualBox keys
+  - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+  - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+  # Add Oracle VirtualBox repository
+  - sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian trusty contrib"
+  # Update apt-get
+  - sudo apt-get update -qq
+  # Install Linux headers
+  - sudo apt-get -y --force-yes install linux-headers-`uname -r`
+  # Install VirtualBox 5.2
+  - sudo apt-get install virtualbox-5.2
+  # Install Vagrant 2.0.1
+  # Todo: install from a package repository, not from a hardcoded URL.
+  - curl -O https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.deb
+  - sudo dpkg -i vagrant_2.0.1_x86_64.deb
 
 install:
   # Add Composer's local bin directory to the PATH.
@@ -37,6 +52,7 @@ install:
 
 script:
   - composer validate --no-check-all --ansi
+  - vagrant status
   - drush site-install --db-url=mysql://draft:draft@localhost/drupal --account-name=admin --account-pass=admin -r ./docroot --yes
 
 matrix:

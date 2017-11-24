@@ -16,9 +16,11 @@ type: 'php:7.1'
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: 'mysqldb:mysql'
+#    solr: 'solrsearch:solr'
+#    redis: 'rediscache:redis'
 
 # The size of the persistent disk of the application (in MB).
-disk: 4096
+disk: 2048
 
 # The 'mounts' describe writable, persistent filesystem mounts in the application. The keys are
 # directory paths, relative to the application root. The values are strings such as

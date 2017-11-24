@@ -13,6 +13,8 @@
     * Stage File Proxy (drupal/stage_file_proxy: **^1.0**)
     * Drush (drush/drush: **^8.1.15**)
 - Do not merge core and Draft profile composer.json files anymore, because this is causing troubles with updating core
+- Add integration with Shippable CI
+- Add integration with Platform.sh
 
 ## Draft Template 1.6.2, 2017-10-12
 

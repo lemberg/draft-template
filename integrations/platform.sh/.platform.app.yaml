@@ -28,7 +28,7 @@ disk: 2048
 mounts:
     '/docroot/sites/default/files': 'shared:files/files'
     '/tmp': 'shared:files/tmp'
-    '/docroot/sites/default/files/private': shared:files/private
+    '/private': shared:files/private
 
 # Configuration of the build of this application.
 build:

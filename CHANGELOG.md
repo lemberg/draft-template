@@ -1,7 +1,6 @@
-## Draft Template 1.x.x,
+## Draft Template 1.7.0, 2017-11-24
 
 - Sort dependencies in composer.json by default
-- Do not configure project locally by default
 - Add Draft settings file with common configuration for running Drupal in VM
 - Updated vendor libraries:
     * Draft Environment (lemberg/draft-environment: **^2.1.1**)
@@ -15,6 +14,7 @@
 - Do not merge core and Draft profile composer.json files anymore, because this is causing troubles with updating core
 - Add integration with Shippable CI
 - Add integration with Platform.sh
+- Explicitly depend on drupal/core: **^8.4.2** in order to avoid downgrading to 8.4.0-alpha1
 
 ## Draft Template 1.6.2, 2017-10-12
 

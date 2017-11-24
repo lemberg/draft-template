@@ -1,5 +1,12 @@
 # UPGRADE
 
-## 1.6.x -> 1.7.x
+## 1.6.x -> 1.7.0
 
-1. Remove local settings file and run `composer install` one more time in order to get updated local development configuration.
+1. Add the following code at the bottom of `settings.local.php` file:
+
+    ```
+    // Draft settings. These come last so that they can override anything.
+    if (file_exists($app_root . '/' . $site_path . '/settings.draft.php')) {
+      include $app_root . '/' . $site_path . '/settings.draft.php';
+    }
+    ```

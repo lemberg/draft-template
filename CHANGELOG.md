@@ -2,6 +2,7 @@
 
 - Sort dependencies in composer.json by default
 - Do not configure project locally by default
+- Add Draft settings file with common configuration for running Drupal in VM
 
 ## Draft Template 1.6.2, 2017-10-12
 

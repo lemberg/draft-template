@@ -44,9 +44,9 @@ class DrupalProject {
     $local_settings_file = "$root/sites/default/settings.local.php";
 
     if ($fs->exists($local_settings_file)) {
-      $io->write('<info>File local.settings.php exists, skipping. To start over remove local.settings.php and run composer install</info>');
+      $io->write("Found settings file <info>./sites/default/settings.local.php</info>, skipping local installation. To start over remove <info>./sites/default/settings.local.php</info> and run composer install</info>");
     }
-    else if ($event->isDevMode() && $io->askConfirmation('<info>Would you like to setup project locally</info> [<comment>Y,n</comment>]? ')) {
+    else if ($event->isDevMode() && $io->askConfirmation('Would you like to setup project locally? <question>[y,N]</question> ', FALSE)) {
 
       // Create settings.local.php
       $fs->copy("$root/sites/example.settings.local.php", $local_settings_file);
@@ -62,7 +62,7 @@ class DrupalProject {
       }
 
       // Enable TWIG debugging.
-      if ($io->askConfirmation('<info>Enable TWIG dubegging</info> [<comment>Y,n</comment>]? ')) {
+      if ($io->askConfirmation('Enable <info>TWIG debugging</info>? <question>[Y,n]</question> ')) {
         $parser = new Parser();
         $config = $parser->parse(file_get_contents($development_services_file));
         $config['parameters']['twig.config'] = [
@@ -76,21 +76,21 @@ class DrupalProject {
       }
 
       // Disable the render cache.
-      if ($io->askConfirmation('<info>Disable the render cache</info> [<comment>y,N</comment>]? ', FALSE)) {
+      if ($io->askConfirmation('Disable <info>render cache</info> (including page cache)? <question>[y,N]</question> ', FALSE)) {
         $settings = file_get_contents($local_settings_file);
         $settings = str_replace("# \$settings['cache']['bins']['render']", "\$settings['cache']['bins']['render']", $settings);
         file_put_contents($local_settings_file, $settings);
       }
 
       // Disable caching for migrations.
-      if ($io->askConfirmation('<info>Disable caching for migrations</info> [<comment>y,N</comment>]? ', FALSE)) {
+      if ($io->askConfirmation('Disable <info>caching for migrations</info>? <question>[y,N]</question> ', FALSE)) {
         $settings = file_get_contents($local_settings_file);
         $settings = str_replace("# \$settings['cache']['bins']['discovery_migration']", "\$settings['cache']['bins']['discovery_migration']", $settings);
         file_put_contents($local_settings_file, $settings);
       }
 
       // Disable Dynamic Page Cache.
-      if ($io->askConfirmation('<info>Disable Dynamic Page Cache</info> [<comment>y,N</comment>]? ', FALSE)) {
+      if ($io->askConfirmation('Disable <info>Dynamic Page Cache</info>? <question>[y,N]</question> ', FALSE)) {
         $settings = file_get_contents($local_settings_file);
         $settings = str_replace("# \$settings['cache']['bins']['dynamic_page_cache']", "\$settings['cache']['bins']['dynamic_page_cache']", $settings);
         file_put_contents($local_settings_file, $settings);

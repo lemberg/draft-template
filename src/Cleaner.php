@@ -31,7 +31,7 @@ class Cleaner {
     /** @var \Composer\IO\IOInterface $io */
     $io = $event->getIO();
 
-    if (!$io->isInteractive() || $io->askConfirmation('<info>Would you like to clean up project template and remove some not relevant files (like README.md)</info> [<comment>Y,n</comment>]? ')) {
+    if (!$io->isInteractive() || $io->askConfirmation('Would you like to clean up project template and remove some not relevant files (like README.md)? <question>[Y,n]</question> ')) {
       $fs = new Filesystem();
       $fs->remove(self::FILES_TO_REMOVE);
     }

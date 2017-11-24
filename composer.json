@@ -6,7 +6,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "lemberg/draft-environment": "^2.0.2"
+        "drupal/coder": "^8.2",
+        "drupal/console": "^1.2.0",
+        "drupal/devel": "^1.2",
+        "drupal/reroute_email": "^1.0",
+        "drupal/stage_file_proxy": "^1.0",
+        "drush/drush": "^8.1.15",
+        "lemberg/draft-environment": "^2.1.1"
     },
     "require": {
         "composer/installers": "^1.3",

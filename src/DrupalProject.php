@@ -122,4 +122,21 @@ HERE;
     return $project_root . '/' . (!empty($vm_settings['apache2_document_root']) ? $vm_settings['apache2_document_root'] : 'docroot');
   }
 
+  /**
+   * Configure integrations with third party platforms.
+   *
+   * @param \Composer\Script\EventEvent $event
+   *   Composer command event object.
+   */
+  public static function configureIntegrations(Event $event) {
+    /** @var \Composer\IO\IOInterface $io */
+    $io = $event->getIO();
+    $fs = new Filesystem();
+    $project_root = getcwd();
+
+    if (!$fs->exists("$project_root/shippable.yml") && $io->askConfirmation('Enable integration with Shippable CI? <question>[Y,n]</question> ')) {
+      $fs->copy("$project_root/integrations/shippable.com/shippable.yml", "$project_root/shippable.yml");
+    }
+  }
+
 }

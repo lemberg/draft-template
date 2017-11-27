@@ -1,3 +1,7 @@
+## Draft template 1.7.1, 2017-11-27
+
+- Local setup assumes that VM is already set up (i.e. `Lemberg\Draft\Environment\Configurer::setUp` must run before `Lemberg\Draft\Template\DrupalProject::localSetup`)
+
 ## Draft Template 1.7.0, 2017-11-24
 
 - Sort dependencies in composer.json by default

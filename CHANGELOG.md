@@ -1,3 +1,7 @@
+## Draft template 1.7.2, 2017-12-13
+
+- Fix path to config directory in Shippable CI template
+
 ## Draft template 1.7.1, 2017-11-27
 
 - Local setup assumes that VM is already set up (i.e. `Lemberg\Draft\Environment\Configurer::setUp` must run before `Lemberg\Draft\Template\DrupalProject::localSetup`)

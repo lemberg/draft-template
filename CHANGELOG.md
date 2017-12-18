@@ -1,5 +1,6 @@
 ## Draft template 1.x.x
 
+- Run clean up after configuring integrations
 - Include Platform.sh settings by default in site settings.php
 - Clean up `./UPGRADE.md` and `./integrations` after running `composer create-project`
 

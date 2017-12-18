@@ -32,8 +32,8 @@
     ],
     "scripts": {
         "post-root-package-install": [
-            "Lemberg\\Draft\\Template\\Cleaner::cleanUp",
-            "Lemberg\\Draft\\Template\\DrupalProject::configureIntegrations"
+            "Lemberg\\Draft\\Template\\DrupalProject::configureIntegrations",
+            "Lemberg\\Draft\\Template\\Cleaner::cleanUp"
         ],
         "post-install-cmd": [
             "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",

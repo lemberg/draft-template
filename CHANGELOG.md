@@ -1,3 +1,8 @@
+## Draft template 1.x.x
+
+- Include Platform.sh settings by default in site settings.php
+- Clean up `./UPGRADE.md` and `./integrations` after running `composer create-project`
+
 ## Draft template 1.7.2, 2017-12-13
 
 - Fix path to config directory in Shippable CI template

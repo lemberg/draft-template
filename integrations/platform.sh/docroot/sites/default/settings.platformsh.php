@@ -112,3 +112,9 @@ if (isset($_ENV['PLATFORM_PROJECT_ENTROPY']) && empty($settings['hash_salt'])) {
 if (isset($_ENV['PLATFORM_TREE_ID']) && empty($settings['deployment_identifier'])) {
   $settings['deployment_identifier'] = $_ENV['PLATFORM_TREE_ID'];
 }
+
+// Production-specific configuration.
+if (isset($_ENV['PLATFORM_BRANCH']) && strtolower($_ENV['PLATFORM_BRANCH']) === 'master') {
+  // Do not import develop config split.
+  $config['config_split.config_split.develop']['status'] = FALSE;
+}

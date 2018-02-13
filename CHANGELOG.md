@@ -1,5 +1,6 @@
 ## Draft template 1.x.x
 
+- Do not import develop configuration split on master (i.e. production) Platform.sh environment
 - PHP Code Sniffer to ignore fonts folders on Shippable CI
 - Run clean up after configuring integrations
 - Include Platform.sh settings by default in site settings.php

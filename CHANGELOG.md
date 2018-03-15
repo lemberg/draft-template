@@ -1,4 +1,4 @@
-## Draft template 1.x.x
+## Draft template 1.8.0, 2018-03-15
 
 - Update default project license to **GPL-2.0-or-later**
 - Do not import develop configuration split on master (i.e. production) Platform.sh environment

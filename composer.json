@@ -12,16 +12,16 @@
         "drupal/reroute_email": "^1.0",
         "drupal/stage_file_proxy": "^1.0",
         "drush/drush": "^8.1.15",
-        "lemberg/draft-environment": "^2.1.1"
+        "lemberg/draft-environment": "^2.5.0"
     },
     "require": {
         "composer/installers": "^1.3",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.3",
-        "drupal/core": "^8.4.2",
+        "drupal/core": "^8.5.0",
         "lemberg/draft": "^1.2.1",
-        "symfony/filesystem": "~2.8|~3.2",
-        "symfony/yaml": "~2.8|~3.2.8",
+        "symfony/filesystem": "^3.4",
+        "symfony/yaml": "^3.4",
         "wikimedia/composer-merge-plugin": "^1.4"
     },
     "repositories": [

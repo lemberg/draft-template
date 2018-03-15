@@ -5,6 +5,11 @@
 - Run clean up after configuring integrations
 - Include Platform.sh settings by default in site settings.php
 - Clean up `./UPGRADE.md` and `./integrations` after running `composer create-project`
+- Updated vendor libraries:
+    * Draft Environment (lemberg/draft-environment: **^2.5.0**)
+    * Drupal Core (drupal/core: **^8.5.0**)
+    * Symfony Filesystem Component (symfony/filesystem: **^3.4**)
+    * Symfony Yaml Component (symfony/yaml: **^3.4**)
 
 ## Draft template 1.7.2, 2017-12-13
 

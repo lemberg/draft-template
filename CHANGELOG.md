@@ -1,6 +1,7 @@
 ## Draft template 1.x.x
 
 - Updated .gitignore to include router file for PHP's built-in webserver, which was added in Drupal 8.5 (`./docroot/.ht.router.php`)
+- Optimize `composer install` command on Shippable CI
 
 ## Draft template 1.8.0, 2018-03-15
 

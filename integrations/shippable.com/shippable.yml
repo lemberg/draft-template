@@ -20,7 +20,7 @@ build:
     # Update Composer.
     - composer self-update --no-progress
     # Install dependencies.
-    - composer install --no-progress --no-interaction
+    - composer install --no-progress --no-interaction --no-suggest --optimize-autoloader --prefer-dist
     # Install Drupal.
     - $SHIPPABLE_BUILD_DIR/bin/drush -r $SHIPPABLE_BUILD_DIR/docroot site-install draft --account-name=admin --account-pass=admin --db-url=mysql://drupal@127.0.0.1:3306/drupal --config-dir=$SHIPPABLE_BUILD_DIR/config/default --yes
     # Register the Drupal and DrupalPractice Standard with PHPCS.

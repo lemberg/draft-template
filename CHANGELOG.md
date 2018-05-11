@@ -2,6 +2,11 @@
 
 - Updated .gitignore to include router file for PHP's built-in webserver, which was added in Drupal 8.5 (`./docroot/.ht.router.php`)
 - Optimize `composer install` command on Shippable CI
+- Update default Platform.sh settings to catch up with changes on the platform:
+    * Make sure project utilizes all 5Gb of space available
+    * Improve `.environment` and `settings.platformsh.php` files
+    * New default file mounts: `'/.drush': 'shared:files/.drush'` and `'/drush-backups': 'shared:files/drush-backups'`
+    * Deny direct access to configuration files
 
 ## Draft template 1.8.0, 2018-03-15
 

@@ -16,6 +16,7 @@
 /docroot/.eslintrc.json
 /docroot/.gitattributes
 /docroot/.htaccess
+/docroot/.ht.router.php
 /docroot/autoload.php
 /docroot/index.php
 /docroot/robots.txt

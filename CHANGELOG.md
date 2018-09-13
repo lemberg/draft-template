@@ -2,6 +2,8 @@
 
 - Updated .gitignore to include router file for PHP's built-in webserver, which was added in Drupal 8.5 (`./docroot/.ht.router.php`)
 - Optimize `composer install` command on Shippable CI
+- Update Drupal core to 8.6.0
+- Fix patch path for the Drupal core 8.6.0(Issue 2855026)
 
 ## Draft template 1.8.0, 2018-03-15
 

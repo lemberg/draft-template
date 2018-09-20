@@ -38,14 +38,19 @@ build:
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
+    # The build hook is run after the build flavor (if any). The file system is
+    # fully writeable, but no services are available (such as a database) nor
+    # any persistent file mounts, as the application has not yet been deployed.
+    build: |
+        curl -sS https://platform.sh/cli/installer | php
     # The deploy hook runs after your application has been deployed and started.
     deploy: |
-      set -e
-      cd docroot
-      drush -y cache-rebuild
-      drush -y updatedb
-      drush -y config-import
-      drush -y entup
+        set -e
+        cd docroot
+        drush -y cache-rebuild
+        drush -y updatedb
+        drush -y config-import
+        drush -y entup
 
 # The configuration of app when it is exposed to the web.
 web:
@@ -106,7 +111,25 @@ web:
                     expires: 2w
 
 # The configuration of scheduled execution.
+#
+# In order automatic snapshot and certificate renewal to work execute steps
+# defined in this instruction: https://docs.platform.sh/gettingstarted/cli/api-tokens.html
 crons:
     drupal:
-        spec: '*/20 * * * *'
+        # Run standard Drupal cron 45 minutes past each hour.
+        spec: '*/45 * * * *'
         cmd: 'cd docroot ; drush core-cron'
+    snapshot:
+        # Take a snapshot automatically every night at 3 am (UTC).
+        spec: '0 3 * * *'
+        cmd: |
+            if [ "$PLATFORM_BRANCH" = master ]; then
+                platform snapshot:create --yes --no-wait
+            fi
+    renewcert:
+        # Force a redeploy at 3:30 am (UTC) on the 7th and 21th of every month.
+        spec: '30 3 7,21 * *'
+        cmd: |
+            if [ "$PLATFORM_BRANCH" = master ]; then
+                platform redeploy --yes --no-wait
+            fi

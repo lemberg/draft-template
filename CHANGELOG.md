@@ -7,6 +7,10 @@
     * Improve `.environment` and `settings.platformsh.php` files
     * New default file mounts: `'/.drush': 'shared:files/.drush'` and `'/drush-backups': 'shared:files/drush-backups'`
     * Deny direct access to configuration files
+    * Improve handling of nested environment variables
+    * Update default PHP version to **7.2**
+- Updated vendor libraries:
+    * Drupal Scaffold (drupal-composer/drupal-scaffold: **^2.5**)
 
 ## Draft template 1.8.0, 2018-03-15
 

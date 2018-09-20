@@ -7,7 +7,7 @@
 name: 'app'
 
 # The runtime the application uses.
-type: 'php:7.1'
+type: 'php:7.2'
 
 # The relationships of the application with services or other applications.
 #
@@ -20,15 +20,17 @@ relationships:
 #    redis: 'rediscache:redis'
 
 # The size of the persistent disk of the application (in MB).
-disk: 2048
+disk: 4096
 
 # The 'mounts' describe writable, persistent filesystem mounts in the application. The keys are
 # directory paths, relative to the application root. The values are strings such as
-# 'shared:files/NAME', where NAME is just a unique name for the mount.
+# 'shared:files/PATH', where PATH is a relative path under the mount's source directory.
 mounts:
     '/docroot/sites/default/files': 'shared:files/files'
     '/tmp': 'shared:files/tmp'
-    '/private': shared:files/private
+    '/private': 'shared:files/private'
+    '/.drush': 'shared:files/.drush'
+    '/drush-backups': 'shared:files/drush-backups'
 
 # Configuration of the build of this application.
 build:
@@ -38,6 +40,7 @@ build:
 hooks:
     # The deploy hook runs after your application has been deployed and started.
     deploy: |
+      set -e
       cd docroot
       drush -y cache-rebuild
       drush -y updatedb
@@ -80,6 +83,12 @@ web:
                     allow: true
                 '^/sitemap\.xml$':
                     allow: true
+
+                # Deny direct access to configuration files.
+                '^/sites/sites\.php$':
+                    scripts: false
+                '^/sites/[^/]+/settings.*?\.php$':
+                    scripts: false
 
         '/sites/default/files':
             # Allow access to all files in the public files directory.

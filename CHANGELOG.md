@@ -2,8 +2,16 @@
 
 - Updated .gitignore to include router file for PHP's built-in webserver, which was added in Drupal 8.5 (`./docroot/.ht.router.php`)
 - Optimize `composer install` command on Shippable CI
-- Update Drupal core to 8.6.0
-- Fix patch path for the Drupal core 8.6.0(Issue 2855026)
+- Update default Platform.sh settings to catch up with changes on the platform:
+    * Make sure project utilizes all 5Gb of space available
+    * Improve `.environment` and `settings.platformsh.php` files
+    * New default file mounts: `'/.drush': 'shared:files/.drush'` and `'/drush-backups': 'shared:files/drush-backups'`
+    * Deny direct access to configuration files
+    * Improve handling of nested environment variables
+    * Update default PHP version to **7.2**
+- Updated vendor libraries:
+    * Drupal Scaffold (drupal-composer/drupal-scaffold: **^2.5**)
+    * Drupal Core (drupal/core: **^8.6.0**)
 
 ## Draft template 1.8.0, 2018-03-15
 

@@ -4,7 +4,7 @@ This is a [Composer](https://getcomposer.org)-based installer for the [Draft](ht
 
 ## Requirements
 
-- PHP 5.6+: http://php.net/downloads.php
+- PHP 7.1+: http://php.net/downloads.php
 - Composer: https://getcomposer.org/download/
 - NFS server:
   * Windows: will be automatically installed with Vagrant WinNFSd plugin

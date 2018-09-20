@@ -9,6 +9,7 @@
     * Deny direct access to configuration files
     * Improve handling of nested environment variables
     * Update default PHP version to **7.2**
+    * Add automatic snapshot creation and certificate renewal cron jobs
 - Updated vendor libraries:
     * Drupal Scaffold (drupal-composer/drupal-scaffold: **^2.5**)
 - Test this project against PHP 7.2 on Travis CI

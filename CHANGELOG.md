@@ -13,7 +13,7 @@
 - Updated vendor libraries:
     * Drupal Scaffold (drupal-composer/drupal-scaffold: **^2.5**)
     * Drupal Core (drupal/core: **^8.6.0**)
-- Test this project against PHP 7.2 on Travis CI
+- Test this project against PHP 7.1 and 7.2 on Travis CI, drop support of PHP 5.6 and 7.0
 
 ## Draft template 1.8.0, 2018-03-15
 

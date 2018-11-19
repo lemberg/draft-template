@@ -1,3 +1,7 @@
+## Draft 1.x.x
+
+- Updated composer.json to remove a drupal-support_project_module_format_dependencies-2855026-49.patch because it's already merged in the drupal core.
+
 ## Draft template 1.9.0, 2018-09-20
 
 - Updated .gitignore to include router file for PHP's built-in webserver, which was added in Drupal 8.5 (`./docroot/.ht.router.php`)

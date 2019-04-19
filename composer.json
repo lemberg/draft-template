@@ -83,7 +83,8 @@
         },
         "patches": {
             "drupal/core": {
-                "Installation profiles do not support project:module format for dependencies": "https://www.drupal.org/files/issues/2018-09-10/drupal-support_project_module_format_dependencies-2855026-49.patch"
+                "Installation profiles do not support project:module format for dependencies": "https://www.drupal.org/files/issues/2018-09-10/drupal-support_project_module_format_dependencies-2855026-49.patch",
+                "Default theme favicon for administration theme": "https://www.drupal.org/files/issues/2018-06-25/default-theme-favicon-for-administration-theme-2981434-5.patch"
             }
         },
         "enable-patching": true

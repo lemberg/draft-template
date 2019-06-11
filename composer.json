@@ -19,7 +19,7 @@
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/core": "^8.6.0",
-        "lemberg/draft": "^1.2.1",
+        "lemberg/draft": "^2.0",
         "symfony/filesystem": "^3.4",
         "symfony/yaml": "^3.4",
         "wikimedia/composer-merge-plugin": "^1.4"

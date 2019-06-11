@@ -1,3 +1,5 @@
+## Draft template 1.10.0
+ - Update Draft profile to 2.x version
 ## Draft template 1.9.0, 2018-09-20
 
 - Updated .gitignore to include router file for PHP's built-in webserver, which was added in Drupal 8.5 (`./docroot/.ht.router.php`)

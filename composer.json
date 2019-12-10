@@ -81,11 +81,7 @@
                 "docroot/themes/custom/*/composer.json"
             ]
         },
-        "patches": {
-            "drupal/core": {
-                "Installation profiles do not support project:module format for dependencies": "https://www.drupal.org/files/issues/2018-09-10/drupal-support_project_module_format_dependencies-2855026-49.patch"
-            }
-        },
+        "patches": {},
         "enable-patching": true
     }
 }

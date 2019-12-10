@@ -81,7 +81,11 @@
                 "docroot/themes/custom/*/composer.json"
             ]
         },
-        "patches": {},
-        "enable-patching": true
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {}
     }
 }

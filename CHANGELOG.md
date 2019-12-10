@@ -1,5 +1,8 @@
 ## Draft template 1.x.x
 
+- Improved patches handling:
+    * Ensure that Drupal core patches apply correctly (i.e. well-known issue with `core/a`, `core/b` or `core/core` folders when patch adds (only) new files)
+    * Ensure that Composer aborts if a patch doesn't apply, avoiding problems with partially applied patches
 - Removed "Installation profiles do not support project:module format for dependencies" patch because it has already been merged into the Drupal core
 
 ## Draft template 1.9.0, 2018-09-20

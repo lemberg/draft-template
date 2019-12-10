@@ -1,3 +1,7 @@
+## Draft template 1.x.x
+
+- Removed "Installation profiles do not support project:module format for dependencies" patch because it has already been merged into the Drupal core
+
 ## Draft template 1.9.0, 2018-09-20
 
 - Updated .gitignore to include router file for PHP's built-in webserver, which was added in Drupal 8.5 (`./docroot/.ht.router.php`)

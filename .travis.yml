@@ -1,5 +1,5 @@
 sudo: required
-dist: trusty
+dist: bionic
 language: php
 
 cache:
@@ -19,7 +19,7 @@ before_install:
   - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
   - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
   # Add Oracle VirtualBox repository
-  - sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian trusty contrib"
+  - sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
   # Update apt-get
   - sudo apt-get update -qq
   # Install Linux headers

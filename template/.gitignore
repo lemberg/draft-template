@@ -1,0 +1,20 @@
+# Ignore document root (this is a template's .gitignore).
+/docroot/**
+
+# Ignore Composer-managed dependencies.
+/vendor/**
+
+# Ignore Vagrant virtual machine data.
+/.vagrant/**
+
+# Ignore local VM settings.
+/vm-settings.local.yml
+
+# Ignore PHPUnit results cache.
+/.phpunit.result.cache
+
+# Ignore test configuration overrides.
+/grumphp.yml
+/phpcs.xml
+/phpstan.neon
+/phpunit.xml

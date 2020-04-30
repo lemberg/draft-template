@@ -87,6 +87,7 @@
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-root-package-install": [
+            "Lemberg\\Draft\\Template\\DrupalProject::applyTemplate",
             "Lemberg\\Draft\\Template\\DrupalProject::configureIntegrations",
             "Lemberg\\Draft\\Template\\Cleaner::cleanUp"
         ]

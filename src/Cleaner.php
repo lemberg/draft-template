@@ -16,11 +16,8 @@ class Cleaner {
    * @var array
    */
   const FILES_TO_REMOVE = [
-    './.travis.yml',
-    './CHANGELOG.md',
-    './README.md',
-    './UPGRADE.md',
-    './integrations'
+    './integrations',
+    './template'
   ];
 
   /**

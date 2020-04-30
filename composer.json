@@ -11,7 +11,8 @@
         "lemberg/draft": "^1.2.1",
         "symfony/filesystem": "^3.4",
         "symfony/yaml": "^3.4",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "require-dev": {
         "drupal/coder": "^8.2",

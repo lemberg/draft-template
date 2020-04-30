@@ -25,6 +25,8 @@
         "ergebnis/composer-normalize": "^2.4",
         "lemberg/draft-environment": "^3.0",
         "mglaman/phpstan-drupal": "^0.12.3",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpro/grumphp": "^0.18.0",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan-deprecation-rules": "^0.12.2",
         "phpstan/phpstan-phpunit": "^0.12.8",

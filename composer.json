@@ -4,25 +4,24 @@
     "description": "Project template for Drupal 8 sites built with the Draft distribution.",
     "license": "GPL-2.0-or-later",
     "require": {
-        "composer/installers": "^1.3",
         "cweagans/composer-patches": "^1.6",
         "drupal/core-composer-scaffold": "^8.9",
         "drupal/core-recommended": "^8.9",
-        "lemberg/draft": "^1.2.1",
-        "symfony/filesystem": "^3.4",
-        "symfony/yaml": "^3.4",
+        "lemberg/draft": "^1.3",
+        "symfony/filesystem": "^3.4 || ^4.4 || ^5.0",
+        "symfony/yaml": "^3.4 || ^4.4 || ^5.0",
         "wikimedia/composer-merge-plugin": "^1.4",
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "require-dev": {
-        "drupal/coder": "^8.2",
-        "drupal/console": "^1.2.0",
-        "drupal/devel": "^1.2",
-        "drupal/reroute_email": "^1.0",
+        "drupal/core-dev": "^8.9",
+        "drupal/console": "^1.9",
+        "drupal/devel": "^2.1",
+        "drupal/reroute_email": "^1.1",
         "drupal/stage_file_proxy": "^1.0",
-        "drush/drush": "^8.1.15",
+        "drush/drush": "^10.2",
         "ergebnis/composer-normalize": "^2.4",
-        "lemberg/draft-environment": "^2.5.0"
+        "lemberg/draft-environment": "^3.0"
     },
     "config": {
         "preferred-install": "dist",
@@ -81,12 +80,10 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
-            "Lemberg\\Draft\\Environment\\Configurer::setUp",
             "Lemberg\\Draft\\Template\\DrupalProject::createRequiredFiles",
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-update-cmd": [
-            "Lemberg\\Draft\\Environment\\Configurer::setUp",
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-root-package-install": [

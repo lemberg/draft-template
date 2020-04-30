@@ -1,5 +1,24 @@
 ## Draft template 1.x.x
 
+- [GH-43](https://github.com/lemberg/draft-template/issues/43) - Updated vendor libraries:
+    * Devel (drupal/devel: **^2.1**)
+    * Draft (lemberg/draft: **^1.3**)
+    * Draft Environment (lemberg/draft-environment: **^3.0**)
+    * Drupal Console (drupal/console: **^1.9**)
+    * Drupal Core Recommended (drupal/core-recommended: **^8.9**)
+    * Drush (drush/drush: **^10.2**)
+    * Reroute email (drupal/reroute_email: **^1.1**)
+    * Symfony Filesystem Component (symfony/filesystem: **^3.4 || ^4.4 || ^5.0**)
+    * Symfony Yaml Component (symfony/yaml: **^3.4 || ^4.4 || ^5.0**)
+
+    Removed vendor libraries:
+
+    * A Multi-Framework Composer Library Installer (composer/installers) - is a dependency of drupal/core-recommended
+    * Coder (drupal/coder) - is a dependency of drupal/core-dev
+
+    Added vendor libraries:
+
+    * Drupal Core Dev (drupal/core-dev: **^8.9**)
 - [GH-55](https://github.com/lemberg/draft-template/issues/55) - Replaced `drupal-composer/drupal-scaffold` with `drupal/core-composer-scaffold`; added `zaporylie/composer-drupal-optimizations: ^1.1`
 - [GH-50](https://github.com/lemberg/draft-template/issues/50) - Normalized composer.json. Added `ergebnis/composer-normalize: ^2.4` to the dev dependencies
 - [GH-56](https://github.com/lemberg/draft-template/issues/56) - Improved Travis CI configuration:

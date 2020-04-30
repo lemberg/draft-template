@@ -1,5 +1,6 @@
 ## Draft template 1.x.x
 
+- [GH-55](https://github.com/lemberg/draft-template/issues/55) - Replaced `drupal-composer/drupal-scaffold` with `drupal/core-composer-scaffold`; added `zaporylie/composer-drupal-optimizations: ^1.1`
 - [GH-50](https://github.com/lemberg/draft-template/issues/50) - Normalized composer.json. Added `ergebnis/composer-normalize: ^2.4` to the dev dependencies
 - [GH-56](https://github.com/lemberg/draft-template/issues/56) - Improved Travis CI configuration:
     * Enabled .travis.yml validation

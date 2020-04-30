@@ -10,19 +10,26 @@
 /docroot/.csslintrc
 /docroot/.eslintignore
 /docroot/.eslintrc.json
+/docroot/.htaccess
 /docroot/.ht.router.php
 /docroot/autoload.php
+/docroot/example.gitignore
 /docroot/index.php
 /docroot/robots.txt
 /docroot/update.php
 /docroot/web.config
+/docroot/sites/README.txt
 /docroot/sites/development.services.yml
 /docroot/sites/example.settings.local.php
 /docroot/sites/example.sites.php
 /docroot/sites/default/default.services.yml
 /docroot/sites/default/default.settings.php
+/docroot/modules/README.txt
+/docroot/profiles/README.txt
+/docroot/themes/README.txt
 
 # Ignore local setup.
+/docroot/sites/default/development.services.yml
 /docroot/sites/default/settings.local.php
 
 # Ignore paths that contain user-generated content.

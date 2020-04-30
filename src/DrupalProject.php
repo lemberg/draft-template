@@ -15,7 +15,7 @@ class DrupalProject {
   /**
    * Creates files required by Drupal.
    *
-   * @param \Composer\Script\EventEvent $event
+   * @param \Composer\Script\Event $event
    *   Composer command event object.
    */
   public static function createRequiredFiles(Event $event) {
@@ -33,7 +33,7 @@ class DrupalProject {
   /**
    * Sets up local development environment.
    *
-   * @param \Composer\Script\EventEvent $event
+   * @param \Composer\Script\Event $event
    *   Composer command event object.
    */
   public static function localSetup(Event $event) {
@@ -45,7 +45,7 @@ class DrupalProject {
 
     if (!$fs->exists($local_settings_file) && $event->isDevMode() && $io->isInteractive() && $io->askConfirmation('Would you like to setup project locally? <question>[Y,n]</question> ')) {
 
-      // Create settings.local.php
+      // Create settings.local.php.
       $fs->copy("$root/sites/example.settings.local.php", $local_settings_file);
 
       // Inject settings.draft.php at the bottom of the local settings file.
@@ -124,7 +124,7 @@ HERE;
   /**
    * Apply template (mirror templates directory).
    *
-   * @param \Composer\Script\EventEvent $event
+   * @param \Composer\Script\Event $event
    *   Composer command event object.
    */
   public static function applyTemplate(Event $event) {
@@ -135,7 +135,7 @@ HERE;
   /**
    * Configure integrations with third party platforms.
    *
-   * @param \Composer\Script\EventEvent $event
+   * @param \Composer\Script\Event $event
    *   Composer command event object.
    */
   public static function configureIntegrations(Event $event) {

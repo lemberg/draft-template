@@ -1,5 +1,10 @@
 ## Draft template 1.x.x
 
+- [GH-56](https://github.com/lemberg/draft-template/issues/56) - Improved Travis CI configuration:
+    * Enabled .travis.yml validation
+    * Simplified PHP configuration tweaking
+    * Upgraded VirtualBox to 6.1
+    * Switched to the (unofficial) Vagrant PPA
 - Improved patches handling:
     * Ensure that Drupal core patches apply correctly (i.e. well-known issue with `core/a`, `core/b` or `core/core` folders when patch adds (only) new files)
     * Ensure that Composer aborts if a patch doesn't apply, avoiding problems with partially applied patches

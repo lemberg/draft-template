@@ -1,5 +1,36 @@
-# Ignore document root (this is a template's .gitignore).
-/docroot/**
+# Ignore non-custom parts of Drupal.
+/docroot/core/**
+/docroot/modules/contrib/**
+/docroot/profiles/contrib/**
+/docroot/themes/contrib/**
+
+# Ignore files added by Drupal Scaffold Composer plugin.
+/.gitattributes
+/.editorconfig
+/docroot/.csslintrc
+/docroot/.eslintignore
+/docroot/.eslintrc.json
+/docroot/.ht.router.php
+/docroot/autoload.php
+/docroot/index.php
+/docroot/robots.txt
+/docroot/update.php
+/docroot/web.config
+/docroot/sites/development.services.yml
+/docroot/sites/example.settings.local.php
+/docroot/sites/example.sites.php
+/docroot/sites/default/default.services.yml
+/docroot/sites/default/default.settings.php
+
+# Ignore local setup.
+/docroot/sites/default/settings.local.php
+
+# Ignore paths that contain user-generated content.
+/docroot/sites/*/files/**
+/docroot/sites/*/private/**
+
+# Ignore SimpleTest multi-site environment.
+/docroot/sites/simpletest/**
 
 # Ignore Composer-managed dependencies.
 /vendor/**
@@ -18,7 +49,3 @@
 /phpcs.xml
 /phpstan.neon
 /phpunit.xml
-
-# Ignore files added by Drupal Scaffold Composer plugin.
-/.gitattributes
-/.editorconfig

@@ -47,9 +47,6 @@ before_install:
   - sudo apt-get install virtualbox-6.1 vagrant
 
 install:
-  # Add Composer's local bin directory to the PATH.
-  - export PATH="$HOME/.composer/vendor/bin:$TRAVIS_BUILD_DIR/bin:$PATH"
-
   # Create the MySQL database and add a user for testing.
   - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'draft'@'localhost' IDENTIFIED BY 'draft'; GRANT ALL ON drupal.* TO 'draft'@'localhost';"
 
@@ -59,4 +56,4 @@ install:
 script:
   - composer validate --no-check-all --ansi
   - vagrant status
-  - drush site-install --db-url=mysql://draft:draft@localhost/drupal --root=./docroot --yes
+  - vendor/bin/drush site-install --db-url=mysql://draft:draft@localhost/drupal --root=./docroot --yes

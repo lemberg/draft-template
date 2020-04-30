@@ -25,7 +25,7 @@
         "lemberg/draft-environment": "^2.5.0"
     },
     "config": {
-        "bin-dir": "bin",
+        "preferred-install": "dist",
         "sort-packages": true
     },
     "extra": {

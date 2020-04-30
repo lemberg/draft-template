@@ -13,6 +13,20 @@ use Symfony\Component\Yaml\Parser;
 class DrupalProject {
 
   /**
+   * List of not relevant files, that should be removed after project creation.
+   *
+   * @var array
+   */
+  const FILES_TO_REMOVE = [
+    './.travis.yml',
+    './CHANGELOG.md',
+    './README.md',
+    './UPGRADE.md',
+    './integrations',
+    './template',
+  ];
+
+  /**
    * Creates files required by Drupal.
    *
    * @param \Composer\Script\Event $event
@@ -150,6 +164,17 @@ HERE;
     if (!$fs->exists('./.platform.app.yml') && $io->askConfirmation('Enable integration with <info>Platform.sh</info>? <question>[Y,n]</question> ')) {
       $fs->mirror('./integrations/platform.sh', '.');
     }
+  }
+
+  /**
+   * Cleans up project template after creation by removing not relevant files.
+   *
+   * @param \Composer\Script\Event $event
+   *   Composer command event object.
+   */
+  public static function cleanUp(Event $event) {
+    $fs = new Filesystem();
+    $fs->remove(self::FILES_TO_REMOVE);
   }
 
 }

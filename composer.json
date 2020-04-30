@@ -95,12 +95,13 @@
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-update-cmd": [
+            "Lemberg\\Draft\\Template\\DrupalProject::createRequiredFiles",
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-root-package-install": [
             "Lemberg\\Draft\\Template\\DrupalProject::applyTemplate",
             "Lemberg\\Draft\\Template\\DrupalProject::configureIntegrations",
-            "Lemberg\\Draft\\Template\\Cleaner::cleanUp"
+            "Lemberg\\Draft\\Template\\DrupalProject::cleanUp"
         ]
     }
 }

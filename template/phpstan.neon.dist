@@ -1,0 +1,6 @@
+parameters:
+  level: max
+  paths:
+    - ./docroot/modules/custom
+    - ./docroot/profiles/custom
+    - ./docroot/themes/custom

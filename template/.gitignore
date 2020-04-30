@@ -18,3 +18,7 @@
 /phpcs.xml
 /phpstan.neon
 /phpunit.xml
+
+# Ignore files added by Drupal Scaffold Composer plugin.
+/.gitattributes
+/.editorconfig

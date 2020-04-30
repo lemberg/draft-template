@@ -57,4 +57,5 @@ install:
 script:
   - composer validate --no-check-all --ansi
   - vagrant status
+  - vendor/bin/phpcs
   - vendor/bin/drush site-install --db-url=mysql://draft:draft@localhost/drupal --root=./docroot --yes

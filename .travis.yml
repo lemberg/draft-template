@@ -29,7 +29,9 @@ cache:
 
 before_install:
   # Tweak PHP configuration.
-  - phpenv config-rm xdebug.ini
+  - if [[ "$(php --version | grep -cim1 xdebug)" -ge 1 ]];
+      then phpenv config-rm xdebug.ini;
+    fi
   - echo 'sendmail_path = /bin/true' >> drupal.php.ini;
   - phpenv config-add drupal.php.ini
   - phpenv rehash

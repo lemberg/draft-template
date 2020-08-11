@@ -13,9 +13,23 @@ use Symfony\Component\Yaml\Parser;
 class DrupalProject {
 
   /**
+   * List of not relevant files, that should be removed after project creation.
+   *
+   * @var array
+   */
+  const FILES_TO_REMOVE = [
+    './.travis.yml',
+    './CHANGELOG.md',
+    './README.md',
+    './UPGRADE.md',
+    './integrations',
+    './template',
+  ];
+
+  /**
    * Creates files required by Drupal.
    *
-   * @param \Composer\Script\EventEvent $event
+   * @param \Composer\Script\Event $event
    *   Composer command event object.
    */
   public static function createRequiredFiles(Event $event) {
@@ -33,7 +47,7 @@ class DrupalProject {
   /**
    * Sets up local development environment.
    *
-   * @param \Composer\Script\EventEvent $event
+   * @param \Composer\Script\Event $event
    *   Composer command event object.
    */
   public static function localSetup(Event $event) {
@@ -45,7 +59,7 @@ class DrupalProject {
 
     if (!$fs->exists($local_settings_file) && $event->isDevMode() && $io->isInteractive() && $io->askConfirmation('Would you like to setup project locally? <question>[Y,n]</question> ')) {
 
-      // Create settings.local.php
+      // Create settings.local.php.
       $fs->copy("$root/sites/example.settings.local.php", $local_settings_file);
 
       // Inject settings.draft.php at the bottom of the local settings file.
@@ -115,32 +129,52 @@ HERE;
    */
   public static function getProjectDocRoot() {
     // Get document root from VM settings.
-    $project_root = getcwd();
     $parser = new Parser();
-    $vm_settings = $parser->parse(file_get_contents("$project_root/vm-settings.yml"));
+    $vm_settings = $parser->parse(file_get_contents('./vm-settings.yml'));
 
-    return $project_root . '/' . (!empty($vm_settings['apache2_document_root']) ? $vm_settings['apache2_document_root'] : 'docroot');
+    return './' . (!empty($vm_settings['apache2_document_root']) ? $vm_settings['apache2_document_root'] : 'docroot');
+  }
+
+  /**
+   * Apply template (mirror templates directory).
+   *
+   * @param \Composer\Script\Event $event
+   *   Composer command event object.
+   */
+  public static function applyTemplate(Event $event) {
+    $fs = new Filesystem();
+    $fs->mirror('./template', '.', NULL, ['override' => TRUE]);
   }
 
   /**
    * Configure integrations with third party platforms.
    *
-   * @param \Composer\Script\EventEvent $event
+   * @param \Composer\Script\Event $event
    *   Composer command event object.
    */
   public static function configureIntegrations(Event $event) {
     /** @var \Composer\IO\IOInterface $io */
     $io = $event->getIO();
     $fs = new Filesystem();
-    $project_root = getcwd();
 
-    if (!$fs->exists("$project_root/shippable.yml") && $io->askConfirmation('Enable integration with <info>Shippable CI</info>? <question>[Y,n]</question> ')) {
-      $fs->copy("$project_root/integrations/shippable.com/shippable.yml", "$project_root/shippable.yml");
+    if (!$fs->exists('./shippable.yml') && $io->askConfirmation('Enable integration with <info>Shippable CI</info>? <question>[Y,n]</question> ')) {
+      $fs->copy('./integrations/shippable.com/shippable.yml', './shippable.yml');
     }
 
-    if (!$fs->exists("$project_root/.platform.app.yml") && $io->askConfirmation('Enable integration with <info>Platform.sh</info>? <question>[Y,n]</question> ')) {
-      $fs->mirror("$project_root/integrations/platform.sh", "$project_root");
+    if (!$fs->exists('./.platform.app.yml') && $io->askConfirmation('Enable integration with <info>Platform.sh</info>? <question>[Y,n]</question> ')) {
+      $fs->mirror('./integrations/platform.sh', '.');
     }
+  }
+
+  /**
+   * Cleans up project template after creation by removing not relevant files.
+   *
+   * @param \Composer\Script\Event $event
+   *   Composer command event object.
+   */
+  public static function cleanUp(Event $event) {
+    $fs = new Filesystem();
+    $fs->remove(self::FILES_TO_REMOVE);
   }
 
 }

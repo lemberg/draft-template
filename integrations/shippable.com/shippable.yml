@@ -23,10 +23,8 @@ build:
     - composer install --no-progress --no-interaction --no-suggest --optimize-autoloader --prefer-dist
     # Install Drupal.
     - $SHIPPABLE_BUILD_DIR/bin/drush -r $SHIPPABLE_BUILD_DIR/docroot site-install draft --account-name=admin --account-pass=admin --db-url=mysql://drupal@127.0.0.1:3306/drupal --config-dir=$SHIPPABLE_BUILD_DIR/config/default --yes
-    # Register the Drupal and DrupalPractice Standard with PHPCS.
-    - $SHIPPABLE_BUILD_DIR/bin/phpcs --config-set installed_paths $SHIPPABLE_BUILD_DIR/vendor/drupal/coder/coder_sniffer
     # Check Drupal coding standards.
-    - $SHIPPABLE_BUILD_DIR/bin/phpcs --standard=Drupal,DrupalPractice --colors --ignore=*/css/*,*/fonts/* $SHIPPABLE_BUILD_DIR/docroot/modules/custom $SHIPPABLE_BUILD_DIR/docroot/profiles/custom $SHIPPABLE_BUILD_DIR/docroot/themes/custom
+    - vendor/bin/phpcs
     # Drupal test runner will fail if no tests are found. Uncomment lines below
     # after adding at least one custom test. Don't forget to add PHPUnit to
     # project's composer.json file.

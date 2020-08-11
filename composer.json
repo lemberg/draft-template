@@ -14,14 +14,25 @@
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.9",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
         "drupal/console": "^1.9",
+        "drupal/core-dev": "^8.9",
         "drupal/devel": "^2.1",
         "drupal/reroute_email": "^1.1",
         "drupal/stage_file_proxy": "^1.0",
         "drush/drush": "^10.2",
+        "ekino/phpstan-banned-code": "^0.3.1",
         "ergebnis/composer-normalize": "^2.4",
-        "lemberg/draft-environment": "^3.0"
+        "lemberg/draft-environment": "^3.0",
+        "mglaman/phpstan-drupal": "^0.12.3",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpro/grumphp": "^0.18.0",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^0.12.2",
+        "phpstan/phpstan-phpunit": "^0.12.8",
+        "phpstan/phpstan-strict-rules": "^0.12.2",
+        "slam/phpstan-extensions": "^5.0",
+        "thecodingmachine/phpstan-strict-rules": "^0.12.0"
     },
     "config": {
         "preferred-install": "dist",
@@ -84,11 +95,13 @@
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-update-cmd": [
+            "Lemberg\\Draft\\Template\\DrupalProject::createRequiredFiles",
             "Lemberg\\Draft\\Template\\DrupalProject::localSetup"
         ],
         "post-root-package-install": [
+            "Lemberg\\Draft\\Template\\DrupalProject::applyTemplate",
             "Lemberg\\Draft\\Template\\DrupalProject::configureIntegrations",
-            "Lemberg\\Draft\\Template\\Cleaner::cleanUp"
+            "Lemberg\\Draft\\Template\\DrupalProject::cleanUp"
         ]
     }
 }

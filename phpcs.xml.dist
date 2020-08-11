@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-Ruleset -->
+<ruleset name="Drupal">
+  <description>Drupal coding standard</description>
+  <!-- All PHP code files must be UTF-8 encoded and we treat them as such. -->
+  <arg name="encoding" value="utf-8"/>
+  <!-- Look for *.php files only. -->
+  <arg name="extensions" value="php"/>
+  <!-- Use colors in output. -->
+  <arg name="colors"/>
+  <!-- Show sniff codes in all reports. -->
+  <arg value="s"/>
+  <!-- Show progress of the run. -->
+  <arg value="p"/>
+
+  <!-- Scan custom code only. -->
+  <file>./src/</file>
+
+  <!-- Include the whole Drupal and DrupalPractice standards. -->
+  <rule ref="Drupal"></rule>
+</ruleset>

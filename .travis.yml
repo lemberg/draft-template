@@ -6,6 +6,12 @@ branches:
     - 1.x.x
     - /^\d+\.\d+\.\d+[-a-z0-9]*$/
 
+os: linux
+
+dist: bionic
+
+language: php
+
 stages:
   - Codebase
   - Template
@@ -17,12 +23,6 @@ jobs:
     - &Codebase
 
       stage: Codebase
-
-      os: linux
-
-      dist: bionic
-
-      language: php
 
       php: 7.3
 
@@ -54,11 +54,8 @@ jobs:
 
       stage: Template
 
-      os: linux
-
-      dist: bionic
-
-      language: php
+      services:
+        - mysql
 
       php: 7.3
 

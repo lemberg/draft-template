@@ -1,5 +1,6 @@
-## Draft template 1.x.x
+## Draft template (Unreleased)
 
+- [GH-59](https://github.com/lemberg/draft-template/issues/59) - Split this project into two parts: this template source code & the destination project source code
 - [GH-43](https://github.com/lemberg/draft-template/issues/43) - Updated vendor libraries:
     * Devel (drupal/devel: **^2.1**)
     * Draft (lemberg/draft: **^1.3**)

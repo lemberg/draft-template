@@ -6,56 +6,101 @@ branches:
     - 1.x.x
     - /^\d+\.\d+\.\d+[-a-z0-9]*$/
 
-language: php
-os: linux
-dist: bionic
-
-php:
-  - 7.3
-  - 7.4
-
-services:
-  - mysql
+stages:
+  - Codebase
+  - Template
 
 jobs:
   fast_finish: true
 
-cache:
-  apt: true
-  directories:
-    - "$HOME/.composer/cache"
-    - "$HOME/.drush/cache"
+  include:
+    - &Codebase
 
-before_install:
-  # Tweak PHP configuration.
-  - if [[ "$(php --version | grep -cim1 xdebug)" -ge 1 ]];
-      then phpenv config-rm xdebug.ini;
-    fi
-  - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-  - echo 'memory_limit = 4G' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-  # Download and register Oracle VirtualBox keys.
-  - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-  - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-  # Add Oracle VirtualBox repository.
-  - sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
-  # Add Vagrant PPA (unofficial).
-  - sudo add-apt-repository -y ppa:tiagohillebrandt/vagrant
-  # Update apt-get.
-  - sudo apt-get update -qq
-  # Install Linux headers.
-  - sudo apt-get -y --force-yes install linux-headers-`uname -r`
-  # Install VirtualBox and Vagrant.
-  - sudo apt-get install virtualbox-6.1 vagrant
+      stage: Codebase
 
-install:
-  # Create the MySQL database and add a user for testing.
-  - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'draft'@'localhost' IDENTIFIED BY 'draft'; GRANT ALL ON drupal.* TO 'draft'@'localhost';"
+      os: linux
 
-  # Build the code base.
-  - composer create-project --no-progress --no-interaction
+      dist: bionic
 
-script:
-  - composer validate --no-check-all --ansi
-  - vagrant status
-  - vendor/bin/phpcs
-  - vendor/bin/drush site-install --db-url=mysql://draft:draft@localhost/drupal --root=./docroot --yes
+      language: php
+
+      php: 7.3
+
+      cache:
+       directories:
+         - "$HOME/.composer/cache"
+
+      before_install:
+        # Tweak PHP configuration.
+        - if [[ "$(php --version | grep -cim1 xdebug)" -ge 1 ]];
+            then phpenv config-rm xdebug.ini;
+          fi
+        - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+        - echo 'memory_limit = 4G' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
+      install:
+        # Build the code base.
+        - composer install --no-progress --no-interaction
+
+      script:
+        - composer validate --no-check-all --ansi
+        - vendor/bin/phpcs
+
+    - <<: *Codebase
+
+      php: 7.4
+
+    - &Template
+
+      stage: Template
+
+      os: linux
+
+      dist: bionic
+
+      language: php
+
+      php: 7.3
+
+      cache:
+        apt: true
+        directories:
+          - "$HOME/.composer/cache"
+          - "$HOME/.drush/cache"
+
+      before_install:
+        # Tweak PHP configuration.
+        - if [[ "$(php --version | grep -cim1 xdebug)" -ge 1 ]];
+            then phpenv config-rm xdebug.ini;
+          fi
+        - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+        - echo 'memory_limit = 4G' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+        # Download and register Oracle VirtualBox keys.
+        - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+        - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+        # Add Oracle VirtualBox repository.
+        - sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+        # Add Vagrant PPA (unofficial).
+        - sudo add-apt-repository -y ppa:tiagohillebrandt/vagrant
+        # Update apt-get.
+        - sudo apt-get update -qq
+        # Install Linux headers.
+        - sudo apt-get -y --force-yes install linux-headers-`uname -r`
+        # Install VirtualBox and Vagrant.
+        - sudo apt-get install virtualbox-6.1 vagrant
+
+      install:
+        # Create the MySQL database and add a user for testing.
+        - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'draft'@'localhost' IDENTIFIED BY 'draft'; GRANT ALL ON drupal.* TO 'draft'@'localhost';"
+
+        # Build the code base.
+        - composer create-project --no-progress --no-interaction
+
+      script:
+        - composer validate --no-check-all --ansi
+        - vagrant status
+        - vendor/bin/drush site-install --db-url=mysql://draft:draft@localhost/drupal --root=./docroot --yes
+
+    - <<: *Template
+
+      php: 7.4

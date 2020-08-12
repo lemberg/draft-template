@@ -59,6 +59,8 @@ jobs:
 
       php: 7.3
 
+      env: DRUPAL_VERSION=^8.9
+
       cache:
         apt: true
         directories:
@@ -91,6 +93,7 @@ jobs:
         - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'draft'@'localhost' IDENTIFIED BY 'draft'; GRANT ALL ON drupal.* TO 'draft'@'localhost';"
 
         # Build the code base.
+        - composer require drupal/core-recommended:$DRUPAL_VERSION --no-update
         - composer create-project --no-progress --no-interaction
 
       script:
@@ -101,3 +104,5 @@ jobs:
     - <<: *Template
 
       php: 7.4
+
+      env: DRUPAL_VERSION=^9.0

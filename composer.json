@@ -18,7 +18,7 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
         "drupal/core-dev": "^8.9 || ^9.0",
         "drupal/devel": "^4.0",
-        "drupal/reroute_email": "^1.2 || ^2.0",
+        "drupal/reroute_email": "^1.2",
         "drupal/stage_file_proxy": "^1.0",
         "drush/drush": "^10.2",
         "ekino/phpstan-banned-code": "^0.3.1",

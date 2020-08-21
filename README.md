@@ -1,17 +1,17 @@
-[![Build Status](https://travis-ci.org/lemberg/draft-template.svg?branch=1.9.0)](https://travis-ci.org/lemberg/draft-template)
+[![Build Status](https://travis-ci.org/lemberg/draft-template.svg?branch=1.x.x)](https://travis-ci.org/lemberg/draft-template)
 
 This is a [Composer](https://getcomposer.org)-based installer for the [Draft](https://github.com/lemberg/draft) Drupal profile.
 
 ## Requirements
 
-- PHP 7.1+: http://php.net/downloads.php
+- PHP 7.2+: http://php.net/downloads.php
 - Composer: https://getcomposer.org/download/
 - NFS server:
   * Windows: will be automatically installed with Vagrant WinNFSd plugin
   * MacOS: has built-in support
   * Ubuntu\Debian: install it by running `apt-get install nfs-kernel-server`
-- Vagrant 1.8.0+: https://www.vagrantup.com/downloads.html
-- VirtualBox 5.1+: https://www.virtualbox.org/wiki/Downloads
+- Vagrant 2.2.6+: https://www.vagrantup.com/downloads.html
+- VirtualBox 5.2+: https://www.virtualbox.org/wiki/Downloads
 
 ## Get Started
 
@@ -26,7 +26,3 @@ Composer will create a new directory called `my_awesome_project` containing ever
 ## Changelog
 
 Changelog can be found here [CHANGELOG.md](CHANGELOG.md)
-
-## Upgrade
-
-Upgrade instructions can be found here [UPGRADE.md](/UPGRADE.md)

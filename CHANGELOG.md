@@ -1,5 +1,6 @@
 ## Draft template (Unreleased)
 
+- [GH-54](https://github.com/lemberg/draft-template/issues/54) - Add support of the `.env` files via `vlucas/phpdotenv`
 - [GH-66](https://github.com/lemberg/draft-template/issues/66) - Replace deprecated `CONFIG_SYNC_DIRECTORY` constant. See https://www.drupal.org/node/3018145
 - [GH-59](https://github.com/lemberg/draft-template/issues/59) - Split this project into two parts: this template source code & the destination project source code
 - [GH-43](https://github.com/lemberg/draft-template/issues/43) - Updated vendor libraries:

@@ -1,5 +1,6 @@
 ## Draft template (Unreleased)
 
+- [GH-68](https://github.com/lemberg/draft-template/issues/68) - Update PSH configuration accordingly to the upstream (see https://github.com/platformsh-templates/drupal8). Auto-install `platformsh/config-reader-php` (see https://github.com/platformsh/config-reader-php).
 - [GH-54](https://github.com/lemberg/draft-template/issues/54) - Add support of the `.env` files via `vlucas/phpdotenv`
 - [GH-66](https://github.com/lemberg/draft-template/issues/66) - Replace deprecated `CONFIG_SYNC_DIRECTORY` constant. See https://www.drupal.org/node/3018145
 - [GH-59](https://github.com/lemberg/draft-template/issues/59) - Split this project into two parts: this template source code & the destination project source code

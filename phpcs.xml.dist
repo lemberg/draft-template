@@ -15,6 +15,7 @@
 
   <!-- Scan custom code only. -->
   <file>./src/</file>
+  <file>./integrations/platform.sh</file>
 
   <!-- Include the whole Drupal and DrupalPractice standards. -->
   <rule ref="Drupal"></rule>

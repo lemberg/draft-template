@@ -7,7 +7,7 @@
 name: 'app'
 
 # The runtime the application uses.
-type: 'php:7.3'
+type: 'php:7.4'
 
 # The relationships of the application with services or other applications.
 #
@@ -15,22 +15,29 @@ type: 'php:7.3'
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-    database: 'mysqldb:mysql'
-#    solr: 'solrsearch:solr'
-#    redis: 'rediscache:redis'
+    database: 'db:mysql'
+    redis: 'cache:redis'
 
 # The size of the persistent disk of the application (in MB).
 disk: 4096
 
-# The 'mounts' describe writable, persistent filesystem mounts in the application. The keys are
-# directory paths, relative to the application root. The values are strings such as
-# 'shared:files/PATH', where PATH is a relative path under the mount's source directory.
+# The 'mounts' describe writable, persistent filesystem mounts in the application.
 mounts:
-    '/docroot/sites/default/files': 'shared:files/files'
-    '/tmp': 'shared:files/tmp'
-    '/private': 'shared:files/private'
-    '/.drush': 'shared:files/.drush'
-    '/drush-backups': 'shared:files/drush-backups'
+    '/docroot/sites/default/files':
+        source: local
+        source_path: 'files'
+    '/tmp':
+        source: local
+        source_path: 'tmp'
+    '/private':
+        source: local
+        source_path: 'private'
+    '/.drush':
+        source: local
+        source_path: 'drush'
+    '/drush-backups':
+        source: local
+        source_path: 'drush-backups'
 
 # Configuration of the build of this application.
 build:
@@ -38,19 +45,19 @@ build:
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    # The build hook is run after the build flavor (if any). The file system is
-    # fully writeable, but no services are available (such as a database) nor
-    # any persistent file mounts, as the application has not yet been deployed.
+    # The build hook runs after Composer to finish preparing up your code.
     build: |
+        set -e
+        bash install-redis.sh 5.3.1
         curl -sS https://platform.sh/cli/installer | php
     # The deploy hook runs after your application has been deployed and started.
     deploy: |
         set -e
+        php ./drush/platformsh_generate_drush_yml.php
         cd docroot
         drush -y cache-rebuild
         drush -y updatedb
         drush -y config-import
-        drush -y entup
 
 # The configuration of app when it is exposed to the web.
 web:

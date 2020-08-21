@@ -2,7 +2,9 @@
 
 namespace Lemberg\Draft\Template;
 
+use Composer\Console\Application;
 use Composer\Script\Event;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
@@ -163,6 +165,22 @@ HERE;
 
     if (!$fs->exists('./.platform.app.yml') && $io->askConfirmation('Enable integration with <info>Platform.sh</info>? <question>[Y,n]</question> ')) {
       $fs->mirror('./integrations/platform.sh', '.');
+
+      // Install Platform.sh Config Reader.
+      $app = new Application();
+
+      $input = new ArrayInput([
+        'command' => 'require',
+        'packages' => ['platformsh/config-reader'],
+        '--no-plugins' => TRUE,
+        '--no-progress' => TRUE,
+        '--no-scripts' => TRUE,
+        '--no-suggest' => TRUE,
+        '--no-update' => TRUE,
+      ]);
+      $input->setInteractive(FALSE);
+      $app->setAutoExit(FALSE);
+      $app->run($input);
     }
   }
 

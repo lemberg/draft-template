@@ -21,10 +21,14 @@ build:
     - composer self-update --no-progress
     # Install dependencies.
     - composer install --no-progress --no-interaction --no-suggest --optimize-autoloader --prefer-dist
-    # Install Drupal.
-    - $SHIPPABLE_BUILD_DIR/bin/drush -r $SHIPPABLE_BUILD_DIR/docroot site-install draft --account-name=admin --account-pass=admin --db-url=mysql://drupal@127.0.0.1:3306/drupal --existing-config --yes
+    # Check if composer.json is normalized and composer.lock is up-to-date.
+    - composer normalize --dry-run
     # Check Drupal coding standards.
     - vendor/bin/phpcs
+    # Run static analysis.
+    - vendor/bin/phpstan analyse
+    # Install Drupal.
+    - vendor/bin/drush site-install draft --root docroot --account-name=admin --account-pass=admin --db-url=mysql://drupal@127.0.0.1:3306/drupal --existing-config --yes
     # Drupal test runner will fail if no tests are found. Uncomment lines below
     # after adding at least one custom test. Don't forget to add PHPUnit to
     # project's composer.json file.

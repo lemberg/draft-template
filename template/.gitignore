@@ -56,3 +56,6 @@
 /phpcs.xml
 /phpstan.neon
 /phpunit.xml
+
+# Ignore .env files.
+/.env

@@ -95,8 +95,7 @@ HERE;
           'cache' => FALSE,
         ];
 
-        $yaml = new Dumper();
-        $yaml->setIndentation(2);
+        $yaml = new Dumper(2);
         $fs->dumpFile($development_services_file, $yaml->dump($config, PHP_INT_MAX));
       }
 

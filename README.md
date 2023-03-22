@@ -1,10 +1,8 @@
-[![Build Status](https://travis-ci.org/lemberg/draft-template.svg?branch=1.x.x)](https://travis-ci.org/lemberg/draft-template)
-
-This is a [Composer](https://getcomposer.org)-based installer for the [Draft](https://github.com/lemberg/draft) Drupal profile.
+This is a [Composer](https://getcomposer.org)-based installer for the Drupal 9 based projects by Lemberg.
 
 ## Requirements
 
-- PHP 7.2+: http://php.net/downloads.php
+- PHP 8.1+: http://php.net/downloads.php
 - Composer: https://getcomposer.org/download/
 - NFS server:
   * Windows: will be automatically installed with Vagrant WinNFSd plugin

@@ -1,6 +1,6 @@
 {
     "name": "lemberg/draft-template",
-    "description": "Project template for Drupal 8 sites built with the Draft distribution.",
+    "description": "Project template for Drupal 9 sites.",
     "license": "GPL-2.0-or-later",
     "type": "project",
     "require": {

@@ -22,7 +22,6 @@ class DrupalProject {
   const FILES_TO_REMOVE = [
     './CHANGELOG.md',
     './README.md',
-    './UPGRADE.md',
     './integrations',
     './template',
   ];
@@ -62,15 +61,14 @@ class DrupalProject {
 
       // Create settings.local.php.
       $fs->copy("$root/sites/example.settings.local.php", $local_settings_file);
+      $settings = file_get_contents($local_settings_file);
 
       // Create own development.services.yml.
       $development_services_file = "$root/sites/default/development.services.yml";
       if (!$fs->exists($development_services_file)) {
         $fs->copy("$root/sites/development.services.yml", $development_services_file);
         // Make sure we are using correct services file.
-        $settings = file_get_contents($local_settings_file);
         $settings = str_replace("/sites/development.services.yml", "/sites/default/development.services.yml", $settings);
-        file_put_contents($local_settings_file, $settings);
       }
 
       // Enable TWIG debugging.
@@ -88,24 +86,20 @@ class DrupalProject {
 
       // Disable the render cache.
       if ($io->askConfirmation('Disable <info>render cache</info> (including page cache)? <question>[y,N]</question> ', FALSE)) {
-        $settings = file_get_contents($local_settings_file);
         $settings = str_replace("# \$settings['cache']['bins']['render']", "\$settings['cache']['bins']['render']", $settings);
-        file_put_contents($local_settings_file, $settings);
       }
 
       // Disable caching for migrations.
       if ($io->askConfirmation('Disable <info>caching for migrations</info>? <question>[y,N]</question> ', FALSE)) {
-        $settings = file_get_contents($local_settings_file);
         $settings = str_replace("# \$settings['cache']['bins']['discovery_migration']", "\$settings['cache']['bins']['discovery_migration']", $settings);
-        file_put_contents($local_settings_file, $settings);
       }
 
       // Disable Dynamic Page Cache.
       if ($io->askConfirmation('Disable <info>Dynamic Page Cache</info>? <question>[y,N]</question> ', FALSE)) {
-        $settings = file_get_contents($local_settings_file);
         $settings = str_replace("# \$settings['cache']['bins']['dynamic_page_cache']", "\$settings['cache']['bins']['dynamic_page_cache']", $settings);
-        file_put_contents($local_settings_file, $settings);
       }
+
+      file_put_contents($local_settings_file, $settings);
     }
   }
 

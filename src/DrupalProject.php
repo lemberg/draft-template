@@ -157,7 +157,6 @@ class DrupalProject {
         '--no-plugins' => TRUE,
         '--no-progress' => TRUE,
         '--no-scripts' => TRUE,
-        '--no-suggest' => TRUE,
         '--no-update' => TRUE,
       ]);
       $input->setInteractive(FALSE);

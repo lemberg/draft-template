@@ -57,6 +57,7 @@
     "extra": {
         "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
+            "gitignore": true,
             "locations": {
                 "web-root": "docroot/"
             }

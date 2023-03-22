@@ -20,7 +20,6 @@ class DrupalProject {
    * @var array
    */
   const FILES_TO_REMOVE = [
-    './.travis.yml',
     './CHANGELOG.md',
     './README.md',
     './UPGRADE.md',

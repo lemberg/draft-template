@@ -1,3 +1,10 @@
+# Ignore contrib.
+/docroot/core
+/docroot/libraries
+/docroot/modules/contrib
+/docroot/profiles
+/docroot/themes/contrib
+
 # Ignore Composer-managed dependencies.
 /vendor
 

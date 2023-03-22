@@ -32,3 +32,6 @@
 # Ignore Drupal scaffold.
 /.editorconfig
 /.gitattributes
+
+# Ignore CI.
+/.ci

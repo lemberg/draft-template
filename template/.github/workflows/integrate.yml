@@ -1,0 +1,29 @@
+name: Integrate
+on:
+  pull_request
+
+jobs:
+  composer:
+    name: composer
+    if: ${{ !startsWith(github.head_ref, 'dependabot') }}
+    uses: lembergsolutions/automation/.github/workflows/php-composer.yml@2.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
+
+
+  composer-lock-diff:
+    name: composer.lock diff
+    if: ${{ !startsWith(github.head_ref, 'dependabot') }}
+    uses: lembergsolutions/automation/.github/workflows/composer-lock-diff.yml@2.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
+
+  phpcs:
+    name: phpcs
+    if: ${{ !startsWith(github.head_ref, 'dependabot') }}
+    uses: lembergsolutions/automation/.github/workflows/php-code-sniffer.yml@2.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}

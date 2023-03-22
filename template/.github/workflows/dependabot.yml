@@ -1,0 +1,46 @@
+# Dependabot does not run Composer scripts (and by coincedence also plugins).
+# This is a major issue making Dependabot useless. This GA workflow fixes that
+# by "redoing" the updates with scripts and plugins enabled.
+
+name: Dependabot Workflow
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  metadata:
+    name: dependabot
+    if: ${{ startsWith(github.head_ref, 'dependabot') }}
+    uses: lembergsolutions/automation/.github/workflows/dependabot-metadata.yml@2.x
+
+  composer:
+    name: dependabot
+    if: ${{ needs.metadata.outputs.package-ecosystem == 'composer' }}
+    needs: metadata
+    uses: lembergsolutions/automation/.github/workflows/dependabot-composer.yml@2.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
+      dependency_name: ${{ needs.metadata.outputs.dependency-name }}
+      head_ref: ${{ github.head_ref }}
+
+  composer-lock-diff:
+    name: dependabot
+    if: ${{ startsWith(github.head_ref, 'dependabot') }}
+    needs: composer
+    uses: lembergsolutions/automation/.github/workflows/composer-lock-diff.yml@2.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
+
+  automerge:
+    name: dependabot
+    if: ${{ startsWith(github.head_ref, 'dependabot') && (needs.metadata.outputs.update-type == 'version-update:semver-minor' || needs.metadata.outputs.update-type == 'version-update:semver-patch') }}
+    needs: composer-lock-diff
+    uses: lembergsolutions/automation/.github/workflows/automerge.yml@2.x

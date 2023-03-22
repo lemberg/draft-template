@@ -1,0 +1,11 @@
+name: Rebase dependent branches
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  develop:
+    uses: lembergsolutions/automation/.github/workflows/rebase-dependent-branches.yml@2.x
+    with:
+      dependent_branch: update-dependencies

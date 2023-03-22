@@ -1,0 +1,12 @@
+name: Update mini DB dump
+on:
+  workflow_dispatch:
+
+jobs:
+  update-mini-db-dump:
+    name: maintenance
+    uses: lembergsolutions/automation/.github/workflows/update-mini-db-dump.yml@2.x
+    with:
+      php_version: ${{ vars.PHP_VERSION }}
+      composer_version: ${{ vars.COMPOSER_VERSION }}
+      branch: ${{ github.event.ref }}

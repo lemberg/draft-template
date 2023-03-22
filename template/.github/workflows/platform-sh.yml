@@ -1,0 +1,15 @@
+name: Platform.sh maintenance
+on:
+  # Run every night at 04:17.
+  schedule:
+    - cron: '17 4 * * *'
+
+jobs:
+  backup:
+    name: platform.sh
+    uses: lembergsolutions/automation/.github/workflows/platform-sh-backup.yml@2.x
+    with:
+      platformsh_project_id: ${{ vars.PLATFORMSH_PROJECT_ID }}
+      platformsh_main_branch: ${{ vars.PLATFORMSH_MAIN_BRANCH }}
+    secrets:
+      PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}

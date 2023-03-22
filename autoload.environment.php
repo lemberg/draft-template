@@ -1,16 +1,21 @@
 <?php
 
 /**
- * @file
- * This file is included very early. See autoload.files in composer.json.
- *
- * @link https://getcomposer.org/doc/04-schema.md#files.
+ * This file is included very early. See autoload.files in composer.json and
+ * https://getcomposer.org/doc/04-schema.md#files
  */
 
-use Dotenv\Dotenv;
+use Symfony\Component\Dotenv\Dotenv;
 
 /**
- * Load the .env file.
+ * Load any .env file.
+ *
+ * Drupal has no official method for loading environment variables and uses
+ * getenv() in some places.
  */
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
+
+if (file_exists(__DIR__ . '/.env')) {
+  // Drupal core still uses `getenv()`.
+  $dotenv = (new Dotenv())->usePutenv(TRUE);
+  $dotenv->load(__DIR__ . '/.env');
+}

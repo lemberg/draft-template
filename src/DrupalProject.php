@@ -158,10 +158,6 @@ HERE;
     $io = $event->getIO();
     $fs = new Filesystem();
 
-    if (!$fs->exists('./shippable.yml') && $io->askConfirmation('Enable integration with <info>Shippable CI</info>? <question>[Y,n]</question> ')) {
-      $fs->copy('./integrations/shippable.com/shippable.yml', './shippable.yml');
-    }
-
     if (!$fs->exists('./.platform.app.yml') && $io->askConfirmation('Enable integration with <info>Platform.sh</info>? <question>[Y,n]</question> ')) {
       $fs->mirror('./integrations/platform.sh', '.');
 

@@ -5,6 +5,13 @@
 /docroot/profiles
 /docroot/themes/contrib
 
+# Ignore local development.
+/docroot/sites/*/settings.local.php
+/docroot/sites/*/development.services.yml
+
+# Ignore UGC.
+/docroot/sites/*/files
+
 # Ignore Composer-managed dependencies.
 /vendor
 

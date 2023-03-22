@@ -28,3 +28,7 @@
 /phpcs.xml
 /phpstan.neon
 /phpunit.xml
+
+# Ignore Drupal scaffold.
+/.editorconfig
+/.gitattributes
